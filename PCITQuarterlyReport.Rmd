@@ -1,0 +1,111 @@
+---
+title: <font size = "3"> **Oregon PCIT July - September 2019** </font>
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    storyboard: true
+    theme: spacelab
+    navbar:
+      - { icon: "fa-github-square",  align: right}
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(tidyverse)
+library(here)
+library(rio)
+library(purrr) 
+library(colorblindr)
+library(forcats)
+library(plotly)
+library(gganimate)
+library(ggthemes)
+library(extrafont)
+#install.packages("tmap")
+#install.packages("sf")
+library(tmap)
+library(sf)
+# load data
+
+#d <- import(here("data", "HERE"))
+```
+
+# Home {data-icon="fa-home"}
+
+Column {data-width=600}
+-----------------------------------------------------------------------
+
+### **Quarterly Updates**
+
+![Oregon PCIT Expansion](images\100427-F-5608V-037.JPG)
+
+
+
+
+Column { data-width=400 }
+-----------------------------------------------------------------------
+
+### **Outreach Tip** 
+
+
+One staff shared that her PCIT began attending open houses with HeadStart at the beginning of each school year. These outreach efforts led to increased referrals from teachers, and increased familiarity with the program in parents who were referred. Finally, after connecting with teachers across multiple HeadStart locations in Lane County, Options was asked to provide a PCIT training at an all-day inservice training for HeadStart staff. 
+
+-- *Maria from Options in Springfield, Oregon*
+
+
+### **Site Highlight**
+
+
+>**[Options Counseling, Roseburg](https://wp.options.org/locations/roseburg/)**
+
+>Roseburg is excited to announce that they have two newly renovated PCIT rooms, and thus have doubled their capacity to provide PCIT services to children and families residing in Douglas County!
+
+
+-----------------------------------------------------------------------
+# PCIT Programs {data-icon="fa-map-marker-alt".storyboard}
+
+### PCIT Site Locations
+
+### PCIT Providers in Oregon
+
+
+
+```{r map, eval = FALSE, echo = FALSE}
+shape <- st_read("data/tl_2017_41_place.shp", stringAsFactors = FALSE)
+str(shape) # some sort of geospatial map
+
+county <- st_read("data/county.shp") # seems to show county lines
+
+sites <- import(here("data", "orpcitsites.csv"))
+
+#plot(county)
+
+# load csv of PCIT site locations
+```
+**Training Updates**  
+With the new biennium of funding for the PCIT expansion, 32 new counselors in 13 new and existing sites enrolled in and completed the first phase of PCIT training. We are so excited for this new wave of folks working to support children and families across the State of Oregon.
+
+```{r new2}
+```
+
+-----------------------------------------------------------------------
+# PCIT Outcomes {data-icon="fa-chart-line" .storyboard}
+
+### Number of Families Who Received PCIT
+
+### Number of Families Who Graduated PCIT
+
+### Most Common Diagnoses Treated by PCIT
+
+### ECBI Scores for Children with 4+ Sessions
+
+```{r new}
+```
+
+-----------------------------------------------------------------------
+# Upcoming Events {data-icon="fa-calendar-alt"}
+
+<font size = "5"> - November 23rd, 9AM PST PCIT Consortium with speaker *Beverly Funderburk, PhD*  
+- 12th Annual Oregon PCIT Conference, April 3rd, Portland, Oregon</font> 
